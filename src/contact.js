@@ -14,8 +14,20 @@
         'cursor: pointer; border-radius: 5px 5px 0 0;' +
         'color: white; background-color: #11a9cc';
 
-    var addHtml = '<div style="' + style + '">CONTACT US</div>';
+    var addHtml = '<div id="contact-btn" style="' + style + '">CONTACT US</div>';
 
     document.body.innerHTML += addHtml;
 
+    function showDialog() {
+        document.getElementById('contact-overlay').className = 'overlay show';
+    }
+
+    function hideDialog() {
+        document.getElementById('contact-overlay').className = 'overlay';
+    }
+
+    setTimeout(function() {
+        document.getElementById('contact-btn').addEventListener('click', showDialog);
+        document.getElementById('contact-close').addEventListener('click', hideDialog);
+    });
 })();

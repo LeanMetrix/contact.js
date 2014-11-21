@@ -3,7 +3,7 @@
 <head>
     <style>
         * {
-            transition: all .3s;
+            transition: all 1.3s;
             font-size: 14px;
         }
         .overlay {
@@ -12,15 +12,22 @@
             right: 0;
             top: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0.3)
+            background: rgba(255, 255, 255, 0.3);
+            display: none;
+            opacity: 0;
+        }
+        .show.overlay {
+            display: block;
+            opacity: 1;
         }
         form {
             width: 300px;
             max-width: 90%;
             background: white;
-            padding: 25px 40px;
+            padding: 20px 30px;
             margin: 33% auto 0 auto;
             box-shadow: 0 0 40px rgba(0, 0, 0, .25);
+            border-top: 2px solid #11a9cc;
         }
         input,
         textarea {
@@ -37,7 +44,7 @@
 
         button {
             display: block;
-            margin: 25px auto 0;
+            margin: 10px auto 0;
             padding: 10px 50px;
         }
         textarea {
@@ -64,10 +71,11 @@
         .close {
             float: right;
             right: -20px;
-            margin: -20px -35px;
+            margin: -20px -30px;
             width: 15px;
             height: 15px;
             cursor: pointer;
+            padding: 10px;
         }
         .yolo { fill: #11a9cc; }
     </style>
@@ -80,12 +88,11 @@
 
     <script src="contact.js"></script>
 
-    <div class="overlay">
+    <div id="contact-overlay" class="overlay">
         <form action="https://api.leanmetrix.com/post" method="POST">
-            <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg id="contact-close" class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <path class="yolo" d="M62.146,49.999L92.364,19.78c1.159-1.159,1.159-3.037,0-4.195l-7.95-7.95c-1.158-1.158-3.036-1.158-4.195,0L50,37.854  L19.781,7.635c-1.158-1.158-3.037-1.158-4.196,0l-7.95,7.95c-1.159,1.158-1.159,3.036,0,4.195l30.219,30.219L7.636,80.219  c-1.16,1.159-1.16,3.037,0,4.195l7.949,7.95c1.159,1.159,3.038,1.159,4.196,0L50,62.146l30.218,30.218  c1.159,1.159,3.037,1.159,4.195,0l7.95-7.95c1.159-1.158,1.159-3.036,0-4.195L62.146,49.999z"/>
             </svg>
-            <div>This is your life. And it's ending one minute at a time.</div>
             <input type="text" name="name" placeholder="Name">
             <input type="email" name="email" placeholder="Email">
             <textarea placeholder="Message" name="message"></textarea>
