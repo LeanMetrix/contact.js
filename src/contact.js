@@ -20,6 +20,9 @@
 
     function showDialog() {
         document.getElementById('contact-overlay').className = 'overlay show';
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-message').value = '';
     }
 
     function hideDialog() {
@@ -32,8 +35,6 @@
         http.open("POST", url, true);
         http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         http.onreadystatechange = function() {
-            alert("Server response: " + http.responseText);
-            console.log(http);
             callback();
         };
         http.send(params);
@@ -44,6 +45,7 @@
             ev.preventDefault();
             send('https://leanmetrix.com/contact/', 'hello', function() {
                 hideDialog();
+                //document.getElementById('contact-sent').setAttribute("display", "block");
             });
         }
     }
