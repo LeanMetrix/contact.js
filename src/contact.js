@@ -26,8 +26,32 @@
         document.getElementById('contact-overlay').className = 'overlay';
     }
 
+    function send(url, textToSend, callback) {
+        var http = new XMLHttpRequest();
+        var params = "textToSend=" + encodeURIComponent(textToSend);
+        http.open("POST", url, true);
+        http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {
+            alert("Server response: " + http.responseText);
+            console.log(http);
+            callback();
+        };
+        http.send(params);
+    }
+
+    function submitForm(ev) {
+        if (true) { // if AJAX
+            ev.preventDefault();
+            send('https://leanmetrix.com/contact/', 'hello', function() {
+                hideDialog();
+            });
+        }
+    }
+
     setTimeout(function() {
         document.getElementById('contact-btn').addEventListener('click', showDialog);
         document.getElementById('contact-close').addEventListener('click', hideDialog);
+
+        document.getElementById('contact-form').addEventListener('submit', submitForm);
     });
 })();
