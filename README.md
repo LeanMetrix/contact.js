@@ -2,8 +2,9 @@
 
 Add a 'contact us' with a single line of code!
 
-    contact.init({
+    contactjs.init({
         postUrl: 'http://example.com/contactus',
         buttonText: 'Support',
+        sendButtonText: 'Send',
         position: 'right', // or bottom
     });

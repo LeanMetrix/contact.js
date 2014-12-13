@@ -1,0 +1,32 @@
+{
+  "name": "contact.js",
+  "version": "0.0.0",
+  "description": "Add a 'contact us' with a single line of code!",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "del": "^1.1.0",
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.2",
+    "gulp-dot": "^1.5.0",
+    "gulp-dot-precompiler": "^0.3.0",
+    "gulp-header": "^1.2.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-uglify": "^1.0.2",
+    "package.json": "0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeanMetrix/contact.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeanMetrix/contact.js/issues"
+  },
+  "homepage": "https://github.com/LeanMetrix/contact.js"
+}
