@@ -7,16 +7,9 @@
         backgroundColor: '#11a9cc'
     };
 
-    var style = 'position: fixed; z-index: 100000001; height: 40px; line-height: 40px; padding: 0 15px; ' +
-        (options.position === 'bottom'
-            ? 'bottom: 0; right: 25%;'
-            : 'right: 40px; transform: rotate(-90deg); transform-origin: 100% 0; top: 25%;') +
-        'cursor: pointer; border-radius: 5px 5px 0 0;' +
-        'color: white; background-color: #11a9cc';
-
-    var addHtml = '<div id="contact-btn" style="' + style + '">CONTACT US</div>';
-
-    document.body.innerHTML += addHtml;
+    document.body.innerHTML += render.modal({ sendButton: 'High Five' });
+    document.body.innerHTML += render.button({ buttonText: 'Hola' });
+    document.head.innerHTML += render.styles({});
 
     function showDialog() {
         document.getElementById('contact-overlay').className = 'overlay show';
@@ -29,9 +22,11 @@
         document.getElementById('contact-overlay').className = 'overlay';
     }
 
-    function send(url, textToSend, callback) {
+    function send(url, data, callback) {
         var http = new XMLHttpRequest();
-        var params = "textToSend=" + encodeURIComponent(textToSend);
+        var params = "name=" + encodeURIComponent(data.name) +
+            '&email=' + encodeURIComponent(data.email) +
+            '&message=' + encodeURIComponent(data.message);
         http.open("POST", url, true);
         http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         http.onreadystatechange = function() {
@@ -43,7 +38,12 @@
     function submitForm(ev) {
         if (true) { // if AJAX
             ev.preventDefault();
-            send('https://leanmetrix.com/contact/', 'hello', function() {
+            send('http://localhost:3000/contact/', {
+                    name: document.getElementById('contact-name').value,
+                    email: document.getElementById('contact-email').value,
+                    message: document.getElementById('contact-message').value
+                }, function() {
+                //send('https://api.leanmetrix.com/contact/', 'hello', function() {
                 hideDialog();
                 //document.getElementById('contact-sent').setAttribute("display", "block");
             });
