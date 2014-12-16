@@ -1,5 +1,5 @@
-
 contactjs = (function() {
+
     var options = {
         message: 'Contact Us',
         position: 'right',
@@ -9,9 +9,9 @@ contactjs = (function() {
 
     function init(cfg) {
         cfg = cfg || {};
-        document.body.innerHTML += render.modal({ sendButtonText: cfg.sendButtonText || 'Send' });
-        document.body.innerHTML += render.button({ buttonText: cfg.buttonText || 'Contact Us' });
-        document.head.innerHTML += render.styles({ buttonPosition: cfg.buttonPosition || 'bottom'});
+        document.body.innerHTML += contactjs.modal({ sendButtonText: cfg.sendButtonText || 'Send' });
+        document.body.innerHTML += contactjs.button({ buttonText: cfg.buttonText || 'Contact Us' });
+        document.head.innerHTML += contactjs.styles({ buttonPosition: cfg.buttonPosition || 'bottom'});
     }
 
     function showDialog() {

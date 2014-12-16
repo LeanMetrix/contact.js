@@ -9,11 +9,11 @@
         bottom: 0;
         right: 25%;
         {{??}}
-        {{?}}
-        right: 40px;
         transform: rotate(-90deg);
         transform-origin: 100% 0;
         top: 25%;
+        right: 40px;
+        {{?}}
         cursor: pointer;
         border-radius: 5px 5px 0 0;
         color: white;

@@ -8,7 +8,7 @@ var header = require('gulp-header');
 var sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
-    scripts: ['dist/templates.js', 'src/**/*.js'],
+    scripts: ['src/contact.js', 'dist/templates.js'],
     templates: ['src/*.html', 'src/*.css']
 };
 
@@ -18,9 +18,9 @@ gulp.task('init', function(callback) {
 
 gulp.task('dot', ['init'], function() {
     return gulp.src(paths.templates)
-        .pipe(dot())
+        .pipe(dot({ dictionary: 'contactjs' }))
         .pipe(concat('templates.js'))
-        .pipe(header('window.render = {};'))
+        //.pipe(header('contactjs.render = {};\n'))
         .pipe(gulp.dest('dist'));
 });
 
