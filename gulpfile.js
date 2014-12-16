@@ -17,7 +17,7 @@ gulp.task('init', function(callback) {
 });
 
 gulp.task('dot', ['init'], function() {
-    gulp.src(paths.templates)
+    return gulp.src(paths.templates)
         .pipe(dot())
         .pipe(concat('templates.js'))
         .pipe(header('window.render = {};'))
